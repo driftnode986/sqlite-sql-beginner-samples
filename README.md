@@ -4,9 +4,12 @@
 
 ## 使い方
 
-1. このページの緑色の「Code」ボタンを押し、「Download ZIP」を選んでダウンロードします
-2. ダウンロードした ZIP を開き（展開し）、中のフォルダーを分かりやすい場所に置きます
-3. DB Browser for SQLite で `data/cafe.db` を開きます
+本書で使うデータベースは、次のリンクからダウンロードできます。
+
+- **[cafe.db をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/cafe.db)**
+
+ダウンロードした `cafe.db` を DB Browser for SQLite で開きます。
+第11章で使う CSV と、各章の SQL も入手したい場合は、このページの緑色の「Code」ボタンから「Download ZIP」を選びます。
 
 本書の操作はすべて DB Browser for SQLite の画面で行います。詳しい手順は本書の第1章と第2章にあります。
 
