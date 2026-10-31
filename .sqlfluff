@@ -1,0 +1,12 @@
+[sqlfluff]
+dialect = sqlite
+max_line_length = 72
+# AM04: SELECT * は第3章で教える書き方。LT09: 初心者向けに SELECT name, price を1行で書く（改行すると読みにくい）
+exclude_rules = AM04, LT09
+
+[sqlfluff:indentation]
+tab_space_size = 2
+indent_unit = space
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = upper

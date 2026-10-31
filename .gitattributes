@@ -1,0 +1,3 @@
+# 第11章の CSV は Excel が書き出す形（CRLF・Shift_JIS）のまま配る。改行を書き換えない
+data/csv/*.csv -text
+*.db binary
