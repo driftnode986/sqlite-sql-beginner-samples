@@ -1,0 +1,8 @@
+[sqlfluff]
+# repo 直下の .sqlfluff の除外（AM04・LT09）に足す。第8章のサブクエリで、初心者向けに意図して使う書き方。
+# RF02: 外の SQL と中の SQL（サブクエリ）を合わせて「表が2つ以上」と数え、列名に表名を付けるよう求める。
+#       1つの表だけを見る短いサブクエリ（SELECT product_id FROM order_items）は、表名を付けない書き方で教える。
+# AL04: 「平均より価格の高い商品」のように、外と中で同じ表（products）を使うサブクエリを「別名の重複」と数える。
+#       外と中は別の SELECT なので、SQLite では別名なしで正しく動く（結果は tools/check-sql.sh が expected/ と照合する）。
+# RF03: EXISTS の中で外の表（p.product_id）を指すため、中の SQL だけ表名を付ける。sqlfluff はこれを「書き方の不統一」と数える。
+exclude_rules = AM04, LT09, RF02, AL04, RF03

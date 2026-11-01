@@ -1,0 +1,3 @@
+# 08-18 はかっこを閉じ忘れた SQL（near ";": syntax error）を実行して見せる SQL。sqlfluff は字句解析できず止める。
+# 結果（エラーの文）は tools/check-sql.sh が expected/ と照合する。
+08-18-paren.error.sql
