@@ -1,0 +1,3 @@
+# エラーを見せる SQL（*.error.sql）は、わざと文法を誤っているので sqlfluff の検査から外す。
+# 正しくエラーになることは tools/check-sql.sh が expected/ と照合して確かめる。
+*.error.sql

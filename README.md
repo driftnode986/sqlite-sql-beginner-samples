@@ -12,7 +12,7 @@
 - **[sales_2025_04_sjis.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_04_sjis.csv)** … 第11章で取り込む CSV（Shift_JIS。文字化けを確かめる見本）
 
 ダウンロードした `cafe.db` を DB Browser for SQLite で開きます。
-各章の SQL は、このページの章ごとのフォルダー（`ch03-select` など）でファイル名を押すと読めます。本書の操作では SQL を DB Browser の「SQL 実行」タブに入力します。
+各章の SQL は、このページの章ごとのフォルダー（`ch03-select` など）でファイル名を押すと読めます。本書の操作では SQL を DB Browser の「SQL実行」タブに入力します。
 
 本書の操作はすべて DB Browser for SQLite の画面で行います。詳しい手順は本書の第1章と第2章にあります。
 
