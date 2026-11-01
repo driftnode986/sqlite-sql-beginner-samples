@@ -1,0 +1,5 @@
+../ch09-create-table/09-07-create-members.sql
+../ch09-create-table/09-08-insert-members.sql
+10-01-insert-values.sql
+10-04-insert-columns.sql
+10-05-insert-many.sql

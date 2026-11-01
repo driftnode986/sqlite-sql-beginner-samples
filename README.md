@@ -23,7 +23,8 @@
 - `data/csv/` … 第11章で取り込む CSV ファイル（UTF-8 と Shift_JIS の2種類）
 - `chNN-…/` … 各章の SQL。ファイル名の番号は本書の節の順です
   - `expected/` … その SQL を実行したときの結果
-  - `prereq/` … その SQL の前に実行しておく同じ章の SQL（第9章のように、前の SQL で作った表を使う SQL だけにあります。本書の順に1回ずつ実行すれば同じ状態になります）
+  - `prereq/` … その SQL の前に実行しておく SQL（第9章のように、前の SQL で作った表を使う SQL だけにあります。本書の順に1回ずつ実行すれば同じ状態になります。第10章は第9章で作った members の表を使うので、第9章の SQL も書いてあります）
+  - `ch10-insert-update-delete/10-16-begin.sql` は、DB Browser の「SQL実行」タブで実行すると `cannot start a transaction within a transaction` のエラーになる例です（DB Browser が SQL を実行する前に自分でトランザクションを始めるため。sqlite3 ではエラーになりません）
 
 サンプルのデータは、学習用に作った架空のものです。
 
