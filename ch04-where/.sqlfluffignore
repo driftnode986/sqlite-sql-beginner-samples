@@ -1,0 +1,3 @@
+# 04-15 は COLLATE NOCASE を値の比べ方に付ける SQL。sqlfluff 4.5.0 の sqlite の方言は式の中の COLLATE を
+# 読み取れず PRS（解析不能）にする（2026-11-01 実測）。sqlite3 では動き、結果は tools/check-sql.sh が expected/ と照合する。
+04-15-nocase.sql
