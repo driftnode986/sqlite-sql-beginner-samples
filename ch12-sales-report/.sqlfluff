@@ -1,0 +1,6 @@
+[sqlfluff]
+# repo 直下の .sqlfluff の除外（AM04・LT09）に足す。第12章で、初心者向けに意図して使う書き方。
+# AM09: ビューの先頭の行を LIMIT で見る（第3章と同じ。並べ替えずに、ビューの行の順のまま見る）
+# CP03: CAST を大文字で書く（第5章・第11章と同じ）
+# AL03: INSERT INTO sales SELECT … の列は sales の列の順に入るので、別名は付けない（第11章の SQL と同じ）
+exclude_rules = AM04, LT09, AM09, CP03, AL03

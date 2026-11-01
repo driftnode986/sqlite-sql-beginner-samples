@@ -14,8 +14,10 @@
 - **[sales_2024_04.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2024_04.csv)** … 第11章で2年分をまとめる CSV（2024年4月の売上）
 - **[sales_2024_05.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2024_05.csv)** … 第11章の練習問題の CSV（2024年5月の売上）
 - **[sales_2025_05.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_05.csv)** … 第11章の練習問題の CSV（2025年5月の売上）
+- **[sales_2025_06.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_06.csv)** … 第12章で新しい月として足す CSV（2025年6月の売上）
+- **[12-08-report.sql をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/ch12-sales-report/12-08-report.sql)** … 第12章のレポートの4つの SQL を1つにまとめた SQL のファイル（打つかわりに「SQLファイルを開く」で開けます）
 
-CSV のリンクを押して、ダウンロードされずにファイルの中身の文字が表示されたときは、リンクを右クリックして、リンク先をファイルとして保存する項目（「名前を付けてリンク先を保存」など）を選びます。
+CSV や SQL のリンクを押して、ダウンロードされずにファイルの中身の文字が表示されたときは、リンクを右クリックして、リンク先をファイルとして保存する項目（「名前を付けてリンク先を保存」など）を選びます。
 
 ダウンロードした `cafe.db` を DB Browser for SQLite で開きます。
 各章の SQL は、このページの章ごとのフォルダー（`ch03-select` など）でファイル名を押すと読めます。本書の操作では SQL を DB Browser の「SQL実行」タブに入力します。
@@ -27,11 +29,12 @@ CSV のリンクを押して、ダウンロードされずにファイルの中�
 - `data/cafe.db` … 本書で使うデータベース。カフェ「こもれび珈琲」の4つの表が入っています
   - `stores`（店舗）・`products`（商品）・`orders`（注文）・`order_items`（注文の明細）
 - `data/excel/` … 第11章で CSV に保存する Excel のファイル
-- `data/csv/` … 第11章で取り込む CSV ファイル（UTF-8 の4つと、Shift_JIS の見本1つ。UTF-8 のファイルは Excel の「CSV UTF-8」と同じく先頭に BOM が付いています）
+- `data/csv/` … 第11章・第12章で取り込む CSV ファイル（UTF-8 の5つと、Shift_JIS の見本1つ。UTF-8 のファイルは Excel の「CSV UTF-8」と同じく先頭に BOM が付いています）
 - `chNN-…/` … 各章の SQL。ファイル名の番号は本書の節の順です
   - `expected/` … その SQL を実行したときの結果
   - `prereq/` … その SQL の前に実行しておく SQL（第9章のように、前の SQL で作った表を使う SQL だけにあります。本書の順に1回ずつ実行すれば同じ状態になります。第10章は第9章で作った members の表を使うので、第9章の SQL も書いてあります）
   - `ch11-import-csv/fixtures/` … 第11章の SQL を確かめるときに使う、DB Browser で CSV を取り込んだ表と同じ表を作る SQL（読者の方は使いません。本書では DB Browser の画面で取り込みます）
+  - `ch12-sales-report/fixtures/` … 第12章の同じもの（2025年6月の CSV を取り込んだ表）
   - `ch10-insert-update-delete/10-16-begin.sql` は、DB Browser の「SQL実行」タブで実行すると `cannot start a transaction within a transaction` のエラーになる例です（DB Browser が SQL を実行する前に自分でトランザクションを始めるため。sqlite3 ではエラーになりません）
 
 サンプルのデータは、学習用に作った架空のものです。
