@@ -1,0 +1,3 @@
+# fixtures/ は DB Browser for SQLite の「CSVファイルからテーブルへ」で取り込んだ表を .dump で写したもの。
+# 読者が DB Browser の画面で取り込む表と同じ型・同じ値を、check-sql.sh の照合で再現するために置く（本には載せない）。
+fixtures/

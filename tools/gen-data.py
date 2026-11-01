@@ -122,28 +122,66 @@ def write_sql(orders, items):
     (ROOT / "data" / "cafe.sql").write_text("\n".join(lines), encoding="utf-8")
 
 
-def write_csv():
-    """第11章: Excel で管理していた昨年の売上（日付は 2025/4/1、金額は 1,000 の形）。"""
-    crng = random.Random(20250401)
+def sales_rows(year, month, seed, dups=()):
+    """Excel で管理していた昔の売上の1か月分（日付は 2025/4/1、金額は 1,000 の形・会員でない注文は会員番号が空）。
+
+    dups に書いた行の番号（0 始まり）の行は、すぐ後ろにもう1回書く（レジの二重登録＝第11章の重複の題材）。
+    """
+    crng = random.Random(seed)
     names = {p[0]: p for p in PRODUCTS if p[4] > 0}
-    rows = ["日付,店舗,商品名,数量,金額"]
-    day = dt.date(2025, 4, 1)
-    while day <= dt.date(2025, 4, 30):
+    day = dt.date(year, month, 1)
+    rows = []
+    while day.month == month:
         for _, sname, _, opened in STORES:
             if opened > day.isoformat():
-                continue  # 大学前店は 2024 年開店なので含む・念のため開店前は出さない
+                continue  # 開店前の店は出さない（大学前店は 2024-04-01 開店）
             for _ in range(crng.randint(1, 2)):
-                p = names[crng.choice(list(names))]
-                qty = crng.randint(1, 3)
-                amount = f"{p[3] * qty:,}"
-                amount = f'"{amount}"' if "," in amount else amount
-                rows.append(f"{day.year}/{day.month}/{day.day},{sname},{p[1]},{qty},{amount}")
+                while True:  # 偶然まったく同じ行ができたら引き直す（重複は dups の二重登録だけにする）
+                    p = names[crng.choice(list(names))]
+                    qty = crng.randint(1, 3)
+                    member = str(crng.randint(1, 6)) if crng.random() < 0.4 else ""
+                    row = (day, sname, p[1], qty, p[3] * qty, member)
+                    if row not in rows:
+                        break
+                rows.append(row)
         day += dt.timedelta(days=1)
-    text = "\r\n".join(rows) + "\r\n"
+    out = []
+    for i, r in enumerate(rows):
+        out.append(r)
+        if i in dups:
+            out.append(r)
+    return out
+
+
+def csv_text(rows):
+    lines = ["sale_date,store,product,quantity,amount,member_id"]
+    for day, sname, pname, qty, amount, member in rows:
+        a = f"{amount:,}"
+        a = f'"{a}"' if "," in a else a
+        lines.append(f"{day.year}/{day.month}/{day.day},{sname},{pname},{qty},{a},{member}")
+    return "\r\n".join(lines)  # Excel の CSV UTF-8 は最後の行の後ろに改行を書かない（2026-11-01 実測）
+
+
+# 第11章で使う CSV。(ファイル名の年月, 乱数の種, 二重に書く行)
+SALES = {
+    (2025, 4): (20250401, (17, 88)),
+    (2024, 4): (20240401, ()),
+    (2024, 5): (20240501, ()),
+    (2025, 5): (20250501, ()),
+}
+
+
+def write_csv():
+    """第11章: 昔の売上の CSV（UTF-8・BOM 付き＝Excel の「CSV UTF-8」と同じ形）と、Shift_JIS の見本。"""
     out = ROOT / "data" / "csv"
     out.mkdir(parents=True, exist_ok=True)
-    (out / "sales_2025_04_utf8.csv").write_bytes(text.encode("utf-8"))
-    (out / "sales_2025_04_sjis.csv").write_bytes(text.encode("cp932"))
+    for old in out.glob("*.csv"):
+        old.unlink()
+    for (y, m), (seed, dups) in SALES.items():
+        text = csv_text(sales_rows(y, m, seed, dups))
+        (out / f"sales_{y}_{m:02d}.csv").write_bytes(b"\xef\xbb\xbf" + text.encode("utf-8"))
+        if (y, m) == (2025, 4):
+            (out / f"sales_{y}_{m:02d}_sjis.csv").write_bytes(text.encode("cp932"))
 
 
 if __name__ == "__main__":

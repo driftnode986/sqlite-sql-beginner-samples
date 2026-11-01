@@ -1,0 +1,3 @@
+SELECT *
+FROM sales_2025_04
+LIMIT 5;
