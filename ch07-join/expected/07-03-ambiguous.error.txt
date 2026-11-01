@@ -1,0 +1,3 @@
+Parse error near line 1: ambiguous column name: product_id
+  SELECT order_id, product_id, name FROM order_items AS oi INNER JOIN products A
+                   ^--- error here

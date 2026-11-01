@@ -1,0 +1,4 @@
+[sqlfluff]
+# repo 直下の .sqlfluff の除外（AM04・LT09）に足す。第7章でわざと見せる書き方。
+# RF02: 07-03 は表名を付けずに列を書くと ambiguous column name になることを実行して見せる（正しい書き方は 07-04）。
+exclude_rules = AM04, LT09, RF02

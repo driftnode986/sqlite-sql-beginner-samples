@@ -1,0 +1,3 @@
+# 07-16 は ON を書き忘れた JOIN（すべての組み合わせの行ができる）を、行の数で見せる SQL。
+# sqlfluff は AM08（暗黙の交差結合）と AL05 で止めるが、このつまずきを見せるのが目的。結果は tools/check-sql.sh が expected/ と照合する。
+07-16-forgot-on.sql
