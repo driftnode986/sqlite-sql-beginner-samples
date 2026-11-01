@@ -1,0 +1,3 @@
+Parse error near line 1: near "FROM": syntax error
+  SELECT name, price, FROM products;
+                      ^--- error here

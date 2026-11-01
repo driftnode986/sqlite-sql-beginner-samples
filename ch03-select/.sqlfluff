@@ -1,0 +1,4 @@
+[sqlfluff]
+# repo 直下の .sqlfluff の除外（AM04・LT09）に AM09 を足す。
+# AM09: 第3章は LIMIT を ORDER BY（第5章）より先に見せる。並べ替えずに先頭の数行を見る使い方を教えるため。
+exclude_rules = AM04, LT09, AM09

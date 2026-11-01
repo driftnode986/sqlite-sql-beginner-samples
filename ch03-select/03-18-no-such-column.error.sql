@@ -1,0 +1,2 @@
+SELECT nam
+FROM products;

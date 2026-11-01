@@ -1,0 +1,5 @@
+# エラーを見せる SQL（*.error.sql）は、わざと文法を誤っているので sqlfluff の検査から外す。
+# 正しくエラーになることは tools/check-sql.sh が expected/ と照合して確かめる。
+*.error.sql
+# 03-14 は「キーワードは小文字でも動く」ことを見せる SQL。sqlfluff の大文字の決まり（CP01）にわざと合わせていない。
+03-14-lowercase.sql
