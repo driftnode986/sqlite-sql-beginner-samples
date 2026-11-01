@@ -1,0 +1,7 @@
+CREATE TABLE members (
+  member_id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT UNIQUE,
+  joined_on TEXT NOT NULL,
+  points INTEGER NOT NULL DEFAULT 0
+) STRICT;

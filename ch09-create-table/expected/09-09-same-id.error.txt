@@ -1,0 +1,1 @@
+Error near line 1: UNIQUE constraint failed: members.member_id

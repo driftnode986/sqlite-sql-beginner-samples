@@ -1,0 +1,1 @@
+Error near line 1: cannot store TEXT value in INTEGER column reservations.people

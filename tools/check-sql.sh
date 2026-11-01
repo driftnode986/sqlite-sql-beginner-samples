@@ -9,6 +9,9 @@
 # - 実行は sqlite3 -bail -header -box（本の結果の表と同じ見た目）
 # - ファイル名が *.error.sql の SQL はエラーになることを期待する（エラーの文言も期待結果に含める）
 # - data/cafe.db（読者が開くファイル）が data/cafe.sql と同じ中身かも確かめる
+# - prereq/NN-MM-名前.txt があれば、そこに書いた同じ章の SQL（1行に1本）を先に同じデータベースで流してから実行する
+#   （第9章のように、前の SQL で作った表に行を入れる SQL。読者が DB Browser で順に実行する流れと同じ。
+#    先に流す SQL の出力は捨てる。*.error.sql はエラーで止まってよい・それ以外はエラーなら FAIL）
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -39,6 +42,18 @@ fail=0
 for f in "${files[@]}"; do
   cp "$TMP/fresh.db" "$TMP/run.db"
   out="$TMP/${f%.sql}.txt"
+  pre="prereq/${f%.sql}.txt"
+  if [ -f "$pre" ]; then
+    pre_ok=1
+    while IFS= read -r p || [ -n "$p" ]; do
+      [ -z "$p" ] && continue
+      [ -f "$p" ] || { echo "FAIL: $pre に書いた $p がありません"; pre_ok=0; break; }
+      if ! sqlite3 -bail "$TMP/run.db" < "$p" > /dev/null 2>&1 && [[ "$p" != *.error.sql ]]; then
+        echo "FAIL: $f の前に流す $p がエラーになりました"; pre_ok=0; break
+      fi
+    done < "$pre"
+    [ "$pre_ok" = 1 ] || { fail=1; continue; }
+  fi
   if [[ "$f" == *.error.sql ]]; then
     if sqlite3 -bail -header -box "$TMP/run.db" < "$f" > "$out" 2>&1; then
       echo "FAIL: $f はエラーになるはずが成功しました"; fail=1; continue

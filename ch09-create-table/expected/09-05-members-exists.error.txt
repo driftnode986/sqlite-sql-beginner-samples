@@ -1,0 +1,3 @@
+Parse error near line 1: table members already exists
+  CREATE TABLE members (   member_id INTEGER PRIMARY KEY,   name TEXT NOT NULL, 
+               ^--- error here
