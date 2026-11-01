@@ -1,0 +1,5 @@
+[sqlfluff]
+# repo 直下の .sqlfluff の除外（AM04・LT09）に CP03 を足す。
+# CP03: CAST は SQLite の公式ドキュメントの構文図でキーワード（大文字）として書かれる。本書も SELECT・WHERE と同じく
+# 大文字で書くが、sqlfluff は CAST を関数として扱い、round・format（小文字）と大文字小文字がそろっていないと指摘する。
+exclude_rules = AM04, LT09, CP03
