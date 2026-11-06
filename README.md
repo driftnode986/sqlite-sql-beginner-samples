@@ -1,54 +1,65 @@
 # はじめての SQLite で学ぶ SQL 入門 サンプルファイル
 
-書籍『はじめての SQLite で学ぶ SQL 入門』で使うサンプルのデータベースと SQL です。
+書籍『はじめての SQLite で学ぶ SQL 入門』で使うサンプルのデータベースと SQL です。登録やログインは要りません。
 
 ## 使い方
 
-本書で使うファイルは、次のリンクから1つずつダウンロードできます。
-ダウンロードしたファイルは、「ドキュメント」の中に作った「SQL練習」フォルダーに保存します（本書の第1章）。
+### 最初に使うファイル（第1章）
 
-- **[cafe.db をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/cafe.db)** … 第1章から使うデータベース
-- **[sales_2025_04.xlsx をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/excel/sales_2025_04.xlsx)** … 第11章で CSV に保存する Excel のファイル（2025年4月の売上）
-- **[sales_2025_04.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_04.csv)** … 第11章で取り込む CSV（上の Excel のファイルを「CSV UTF-8」で保存したもの）
-- **[sales_2025_04_sjis.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_04_sjis.csv)** … 第11章で文字化けを確かめる CSV（同じ中身を Shift_JIS で保存したもの）
-- **[sales_2024_04.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2024_04.csv)** … 第11章で2年分をまとめる CSV（2024年4月の売上）
-- **[sales_2024_05.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2024_05.csv)** … 第11章の練習問題の CSV（2024年5月の売上）
-- **[sales_2025_05.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_05.csv)** … 第11章の練習問題の CSV（2025年5月の売上）
-- **[sales_2025_06.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_06.csv)** … 第12章で新しい月として足す CSV（2025年6月の売上）
-- **[12-08-report.sql をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/ch12-sales-report/12-08-report.sql)** … 第12章のレポートの4つの SQL を1つにまとめた SQL のファイル（打つかわりに「SQLファイルを開く」で開けます）
+最初に必要なのは、次の1つだけです。第1章から第10章まで、このファイルで進めます。
 
-CSV や SQL のリンクを押して、ダウンロードされずにファイルの中身の文字が表示されたときは、リンクを右クリックして、リンク先をファイルとして保存する項目（「名前を付けてリンク先を保存」など）を選びます。
+- **[cafe.db をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/cafe.db)** … こもれび珈琲の売上データが入ったデータベース
 
-ダウンロードした `cafe.db` を DB Browser for SQLite で開きます。
-各章の SQL は、このページの章ごとのフォルダー（`ch03-select` など）でファイル名を押すと読めます。本書の操作では SQL を DB Browser の「SQL実行」タブに入力します。
+ダウンロードしたファイルは、「ドキュメント」（Mac は「書類」）の中の「SQL練習」フォルダーに保存し、DB Browser for SQLite で開きます。詳しい手順は本の第1章と第2章にあります。
 
-本書の操作はすべて DB Browser for SQLite の画面で行います。詳しい手順は本書の第1章と第2章にあります。
+### 第11章で使うファイル
 
-## 中身
+第11章に進んでからダウンロードします。どれを使うかは本の第11章の最初に書いてあります。
 
-- `data/cafe.db` … 本書で使うデータベース。カフェ「こもれび珈琲」の4つの表が入っています
-  - `stores`（店舗）・`products`（商品）・`orders`（注文）・`order_items`（注文の明細）
-- `data/excel/` … 第11章で CSV に保存する Excel のファイル
-- `data/csv/` … 第11章・第12章で取り込む CSV ファイル（UTF-8 の5つと、Shift_JIS の見本1つ。UTF-8 のファイルは Excel の「CSV UTF-8」と同じく先頭に BOM が付いています）
-- `chNN-…/` … 各章の SQL。ファイル名の番号は本書の節の順です
-  - `expected/` … その SQL を実行したときの結果
-  - `prereq/` … その SQL の前に実行しておく SQL（第9章のように、前の SQL で作った表を使う SQL だけにあります。本書の順に1回ずつ実行すれば同じ状態になります。第10章は第9章で作った members の表を使うので、第9章の SQL も書いてあります）
-  - `ch11-import-csv/fixtures/` … 第11章の SQL を確かめるときに使う、DB Browser で CSV を取り込んだ表と同じ表を作る SQL（読者の方は使いません。本書では DB Browser の画面で取り込みます）
-  - `ch12-sales-report/fixtures/` … 第12章の同じもの（2025年6月の CSV を取り込んだ表）
-  - `ch10-insert-update-delete/10-16-begin.sql` は、DB Browser の「SQL実行」タブで実行すると `cannot start a transaction within a transaction` のエラーになる例です（DB Browser が SQL を実行する前に自分でトランザクションを始めるため。sqlite3 ではエラーになりません）
+- **[sales_2025_04.xlsx をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/excel/sales_2025_04.xlsx)** … 2025年4月の売上の Excel のファイル。第11章で CSV に保存します
+- **[sales_2025_04.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_04.csv)** … Excel が無い人が、上の Excel のファイルのかわりに使う CSV
+- **[sales_2025_04_sjis.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_04_sjis.csv)** … 文字化けを確かめる CSV（同じ中身を Shift_JIS で保存したもの）
+- **[sales_2024_04.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2024_04.csv)** … 2年分をまとめるときに使う CSV（2024年4月の売上）
+- **[sales_2024_05.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2024_05.csv)** … 練習問題の CSV（2024年5月の売上）
+- **[sales_2025_05.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_05.csv)** … 練習問題の CSV（2025年5月の売上）
 
-サンプルのデータは、学習用に作った架空のものです。
+### 第12章で使うファイル
 
-## 確認のしかた（サンプルを作る側の手順）
+- **[sales_2025_06.csv をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/data/csv/sales_2025_06.csv)** … 新しい月として足す CSV（2025年6月の売上）
+- **[12-08-report.sql をダウンロード](https://github.com/driftnode986/sqlite-sql-beginner-samples/raw/main/ch12-sales-report/12-08-report.sql)** … レポートの4つの SQL を1つにまとめたファイル。打つかわりに「SQLファイルを開く」で開けます
 
-読者の方は使う必要はありません。
+### リンクを押してもダウンロードされないとき
 
-```bash
-python3 tools/gen-data.py                 # data/cafe.sql と CSV を作る（何度実行しても同じ）
-uv run --with openpyxl python tools/make-xlsx.py   # 第11章の Excel のファイルを CSV から作る
-sqlite3 data/cafe.db < data/cafe.sql      # 配布する cafe.db を作る（作り直すときは先に古いファイルを消す）
-cd ch03-select && bash ../tools/check-sql.sh   # 章の SQL を実行し、expected/ と一致するか確かめる
-python3 -m sqlfluff lint .                # SQL の書き方の検査（設定は .sqlfluff）
-```
+CSV や SQL のリンクを押すと、ブラウザーによっては、ファイルの中身の文字がそのまま表示されます。そのときは、リンクを右クリックして、リンク先をファイルとして保存する項目（「名前を付けてリンク先を保存」など。項目の名前はブラウザーによって違います）を選びます。保存したファイルの名前の後ろに `.txt` が付いていたら、`.txt` を消します。
 
-免責事項は [DISCLAIMER.md](DISCLAIMER.md) を読んでください。
+## 章ごとの SQL
+
+この本の SQL はすべて本に載っているので、ダウンロードしなくてかまいません。打ち間違いが見つからないときや、結果が本と同じか確かめたいときに、章のページを開きます。各章のページに、本の section ごとの SQL のファイルと結果の見本の一覧があります。
+
+- [第1章　データベースと SQL ってなに？](ch01-what-is-sql/)
+- [第2章　準備: DB Browser for SQLite で表を眺める（Windows・Mac）](ch02-db-browser/)
+- [第3章　SELECT で表からデータを取得する](ch03-select/)
+- [第4章　WHERE で行を絞り込む](ch04-where/)
+- [第5章　並べ替えと関数で結果を整える](ch05-order-and-functions/)
+- [第6章　GROUP BY で集計する](ch06-group-by/)
+- [第7章　JOIN で表をつなぐ](ch07-join/)
+- [第8章　サブクエリと WITH で、問いを分けて書く](ch08-subquery-and-with/)
+- [第9章　表を作る（CREATE TABLE）](ch09-create-table/)
+- [第10章　データを追加・更新・削除する](ch10-insert-update-delete/)
+- [第11章　Excel・CSV のデータを取り込む](ch11-import-csv/)
+- [第12章　総仕上げ: 自分のデータで売上レポートを作る](ch12-sales-report/)
+
+## サンプルのデータ
+
+`cafe.db` には、カフェ「こもれび珈琲」の4つの表が入っています。データは学習用に作った架空のものです。
+
+- `stores` … 店舗
+- `products` … 商品
+- `orders` … 注文
+- `order_items` … 注文の明細
+
+## そのほかのファイル
+
+- `data` … ダウンロードするファイルの置き場所。上のリンクから取得できるので、開かなくてかまいません
+- `tools` … サンプルを作って確かめるためのものです。本を読み進めるときは使いません（説明は [tools/README.md](tools/README.md)）
+- 免責事項は [DISCLAIMER.md](DISCLAIMER.md) に書いてあります
