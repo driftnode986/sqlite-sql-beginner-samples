@@ -2,6 +2,8 @@
 
 書籍『はじめての SQLite で学ぶ SQL 入門』で使うサンプルのデータベースと SQL です。登録やログインは要りません。
 
+Kindle 版: [はじめての SQLite で学ぶ SQL 入門](https://www.amazon.co.jp/dp/B0HQP3CX1P)
+
 ## 使い方
 
 ### 最初に使うファイル（第1章）
